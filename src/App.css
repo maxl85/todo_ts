@@ -22,11 +22,16 @@ input[type="text"] {
 }
 
 button {
+  width: 100px;
   border: 1px solid #ccc;
   cursor: pointer;
   background-color: #ccc;
   padding: 10px 15px;
   color: white;
+}
+
+button:hover {
+  background-color: rgb(149, 149, 149);
 }
 
 input:checked+span {

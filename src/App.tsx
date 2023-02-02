@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import NewTotoForm from './components/NewTodoForm';
-// import TodoItem from './components/TodoItem';
 import TodoList from './components/TodoList';
 import { ITodo } from './types';
 
 
 function App() {
   const [todos, setTodos] = useState<ITodo[]>([]);
-
-  // useEffect(() => {
-  //   fetch('https://jsonplaceholder.typicode.com/todos')
-  //     .then(res => res.json())
-  //     .then((data: ITodo[]) => {
-  //       setTodos(data);
-  //     })
-  // }, []);
+  
+  const loadTodos = () => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(res => res.json())
+      .then((data: ITodo[]) => {
+        setTodos(data);
+      });
+  };
 
   const addTodo = (text: string) => {
     const newTodo: ITodo = {
@@ -43,6 +42,7 @@ function App() {
 
   return (
     <div className="App">
+      <button onClick={loadTodos}>Load todos</button>
       <NewTotoForm handleClick={addTodo} />
       <TodoList list={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </div>
