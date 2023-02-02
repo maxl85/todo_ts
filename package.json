@@ -23,9 +23,40 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+    "extends": ["react-app","react-app/jest"],
+    "overrides": [
+      {
+        "files": ["**/*.ts?(x)"],
+        "rules": {
+          "@typescript-eslint/no-explicit-any": "warn",
+          "semi": "off",
+          "@typescript-eslint/semi": ["warn"],
+          "@typescript-eslint/member-delimiter-style": [
+            "warn",
+            {
+              "multiline": {
+                "delimiter": "semi",
+                "requireLast": true
+              },
+              "singleline": {
+                "delimiter": "semi",
+                "requireLast": false
+              }
+            }
+          ],
+          "no-console": "warn",
+          "dot-notation": "warn",
+          "quotes": [
+            "warn",
+            "single",
+            {
+              "allowTemplateLiterals": false,
+              "avoidEscape": true
+            }
+          ],
+          "prefer-const": "warn"
+        }
+      }
     ]
   },
   "browserslist": {

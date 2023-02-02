@@ -24,7 +24,7 @@ function App() {
       completed: false,
     };
     setTodos([newTodo, ...todos]);
-  }
+  };
   
   const toggleTodo = (id: ITodo['id']) => {
     setTodos(todos.map(todo => {
@@ -33,13 +33,13 @@ function App() {
       return {
         ...todo,
         completed: !todo.completed,
-      }
-    }))
-  }
+      };
+    }));
+  };
   
   const removeTodo = (id: ITodo['id']) => {
-    setTodos(todos.filter(todo => todo.id !== id))
-  }
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
 
   return (
     <div className="App">

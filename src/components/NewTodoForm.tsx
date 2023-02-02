@@ -8,11 +8,11 @@ import { useRef } from 'react';
 //   handleClick: () => void,
 // }
 interface INewTodoForm {
-  handleClick: (text: string) => void,
+  handleClick: (text: string) => void;
 }
 
 // const NewTodoForm = ({ value, onChange, handleClick }: INewTodoForm) => {
-const NewTodoForm = ({ handleClick }: INewTodoForm) => {
+function NewTodoForm({ handleClick }: INewTodoForm) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const onClick = () => {
@@ -20,7 +20,7 @@ const NewTodoForm = ({ handleClick }: INewTodoForm) => {
       handleClick(inputRef.current.value);
       inputRef.current.value = '';
     }
-  }
+  };
 
   return (
     <>
